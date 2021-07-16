@@ -1,0 +1,15 @@
+
+
+import xarray as xr
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import numpy as np
+import cmocean
+import matplotlib.colors as colors
+import tqdm as tqdm
+
+plotly
+
+conda create -n quantecon-dev pip python ipython numpy scipy sympy matplotlib pandas
+conda install -c conda-forge xarray dask netCDF4 bottleneck
