@@ -22,7 +22,7 @@ Latitudes = ds_MOOSE_GE_2021.lat
 # if infos: display(ds_MOOSE_GE_2021)
 ds_MOOSE_GE_2021.close()
 
-plot_temp = False
+plot_temp = True
 plot_salt = True
 
 if plot_temp : 
@@ -64,6 +64,8 @@ if plot_temp :
         color = (THS_T-cbar_min)/(cbar_max-cbar_min)
         lon,lat = df_11th['longitude'][i], df_11th['latitude'][i]
         ax.plot(lon, lat, marker='o', transform=ccrs.PlateCarree(), color=cmap(color),markersize=14)
+    # add thin black line for 11thHour track
+    ax.plot(df_11th['longitude'][:], df_11th['latitude'][:], color='k', transform=ccrs.PlateCarree(),linewidth = 2)
     #######################################################################
     # Add AmberSail data
     #######################################################################
@@ -78,6 +80,7 @@ if plot_temp :
         lon,lat = df_amber['longitude'][i], df_amber['latitude'][i]
         ax.plot(lon, lat, marker='o', transform=ccrs.PlateCarree(), color=cmap(color),markersize=14)
 
+    ax.plot(df_amber['longitude'][df_amber['longitude']!=0], df_amber['latitude'][df_amber['longitude']!=0], color='tab:grey', transform=ccrs.PlateCarree(),linewidth = 2)
     plt.savefig('EuroSea_vs_TOR_SST.png',dpi=500)
     import pdb;pdb.set_trace()
 
@@ -122,6 +125,7 @@ if plot_salt :
         color = (THS_S-cbar_min)/(cbar_max-cbar_min)
         lon,lat = df_11th['longitude'][i], df_11th['latitude'][i]
         ax.plot(lon, lat, marker='o', transform=ccrs.PlateCarree(), color=cmap(color),markersize=14)
+    ax.plot(df_11th['longitude'][:], df_11th['latitude'][:], color='k', transform=ccrs.PlateCarree(),linewidth = 2)
     #######################################################################
     # Add AmberSail data
     #######################################################################
@@ -135,6 +139,6 @@ if plot_salt :
         color = (THS_S-cbar_min)/(cbar_max-cbar_min)
         lon,lat = df_amber['longitude'][i], df_amber['latitude'][i]
         ax.plot(lon, lat, marker='o', transform=ccrs.PlateCarree(), color=cmap(color),markersize=14)
-    
+    ax.plot(df_amber['longitude'][df_amber['longitude']!=0], df_amber['latitude'][df_amber['longitude']!=0], color='tab:grey', transform=ccrs.PlateCarree(),linewidth = 2)
     plt.savefig('EuroSea_vs_TOR_SSS.png',dpi=500)
     import pdb;pdb.set_trace()

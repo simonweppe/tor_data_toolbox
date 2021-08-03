@@ -108,6 +108,7 @@ class OPData_Process(object):
         pass
 
     def plots_mapbox(self):
+        # https://plotly.com/python/builtin-colorscales/
         pass
 
 # > derive pH > CO2SYS.m python package 
