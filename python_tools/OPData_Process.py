@@ -102,6 +102,18 @@ class OPData_Process(object):
         pass
 
     def derive_pH(self):
+        # first step is compute alkalinity from SST,SSS etc.. > equations can be different for different regions
+        # Alkalinity describes the capacity of the sea water to buffer changes in pH (https://bg.copernicus.org/articles/18/1127/2021/)
+        # As the concentration of most of the weak bases in seawater is strongly dependent on the salinity, alkalinity can in many regions 
+        # be estimated from salinity. However, in regions with a high amount of organic bases in seawater, for example in strong blooms 
+        # or at river mouths, deviations from the alkalinity–salinity relationship can occur
+        # Lee et al 2006 > global, different regions
+        # Nondal 2009 etc...?
+        # Schneider et al :Alkalinity of the Mediterranean Sea > MedSea
+        alkalinity_medsea_schneider = 73.7*SSS - 285.7 #micro_mol.kg-11 , for surface waters < 25m
+
+        alkalinity_lee = a + b*(SSS-35) + c * (SSS-35)**2 + d*(SST-20) + e*(SST-20)**2
+        # 
         pass
 
     def plots_cartopy(self):
