@@ -15,12 +15,7 @@ class OPData_Process(object):
                  **kwargs):
         
         self.op_data_folder = op_data_folder
-        # # define some details for export
-        # path, fname = os.path.split(self.opendrift_output_file)
-        # self.opendrift_output_file_path = path
-        # self.opendrift_output_file_fname = fname
-        # self.processed_path = os.path.join(self.opendrift_output_file_path,'processed_pdfs')
-
+        
     def load_log_files(self):
         '''load all raw data from log files in op_data_folder into a panda dataframe'''
         # this reads the data in log file into a dataframe and attributes correct column names (58 columns)
