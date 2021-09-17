@@ -1,7 +1,9 @@
 # script to compare processing using the python toolbox and Toste's QC
 import sys
 sys.path.append('/home/simon/Documents/GitHub/tor_data_toolbox/python_tools') 
-from OPData_Process import *
+
+from oceanpack_process.OPData_Process import *
+
 op = OPData_Process(op_data_folder = '/media/simon/Seagate Backup Plus Drive/theoceanrace/DATA/2020-07-04_Vendee Arctique')
 # op = OPData_Process(op_data_folder = '/media/simon/Seagate Backup Plus Drive/theoceanrace/DATA/MALIZIA_data')
 op.load_log_files()

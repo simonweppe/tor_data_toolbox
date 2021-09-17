@@ -1,6 +1,6 @@
 import sys
 sys.path.append('/home/simon/Documents/GitHub/tor_data_toolbox/python_tools') 
-from OPData_Process import *
+from oceanpack_process.OPData_Process import *
 
 #########################################################################################################
 # script to compare processing using this python toolbox and Toste's QC (done in matlab)
